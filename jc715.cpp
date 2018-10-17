@@ -1,6 +1,8 @@
 /*
-** Basic Mandelbrot set with EasyBMP output.
+** Basic Julia set with EasyBMP output.
 ** Need to plot X,Y to get antenna on horiz axis.
+** Compile with:
+   g++ -o xj7.exe jc715.cpp EasyBMP.cpp
 ** JM Mon 23 Apr 2018 18:11:55 BST
 */
 #include <iostream>
@@ -23,8 +25,7 @@ double Y_MIN = -1.2 ;
 double Y_MAX =  1.2 ;
 double Y     =  0.0 ;
 double Z     =  0.0 ;
-//double C     =  0.0 ;
-double elptm    =  0.0 ;
+double elptm    = 0.0 ;
 double offset   = 0.005 ;
 int maxiter     = 950 ;
 int iter_count  = 0 ;
@@ -65,7 +66,7 @@ for ( X = X_MIN ; X <= X_MAX ; X += offset ) {
 		if ( iter_count < maxiter ) {
 
 		   mandel( x_pixel, y_pixel )->Red   = (ebmpBYTE) ( iter_count * 13 ) ;
-		   mandel( x_pixel, y_pixel )->Green = (ebmpBYTE) ( iter_count * 203 ) ; 
+		   mandel( x_pixel, y_pixel )->Green = (ebmpBYTE) ( iter_count * 23 ) ; 
 		   mandel( x_pixel, y_pixel )->Blue  = (ebmpBYTE) ( iter_count * 303 ) ;
 			
 		} else {
